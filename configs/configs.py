@@ -7,6 +7,7 @@ try:
     user = getenv("user","default")
     password = getenv("password","default")
     host = getenv("host","default")
+    port = getenv("port","default")
 except Exception as err:
     print("env error: ",err)
 class Config():
@@ -15,5 +16,9 @@ class Config():
         "dbname":dbname,
         "user":user,
         "password":password,
-        "host":host
+        "host":host,
+        "port":port
     }
+    # for db config
+    class Db_Config():
+        SQLALCHEMY_DATABASE_URI = f'postgresql://{user}:{password}@localhost:5432/{dbname}'
