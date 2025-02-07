@@ -7,18 +7,7 @@ def get_students():
     cur = conn.cursor()
     cur.execute("SELECT * FROM student;")
     data = cur.fetchall()
-    data = formator(data,["id","name"])
-    # def dic_format():
-    #     listedData = []
-    #     for i in range(len(data)):
-    #         new_data = {}
-    #         new_data['id'] = data[i][0]
-    #         new_data['name'] = data[i][1]
-    #         # print(new_data)
-    #         listedData.append(new_data)
-    #     return listedData
-    # # print("new data: ",dic_format())
-    # data = dic_format()
+    data = formator(data,["id","name","age"])
     conn.close()
     return data
 
